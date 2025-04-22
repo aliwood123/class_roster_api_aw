@@ -18,6 +18,7 @@ Use API endpoint for the _Collection_ provided in class.
 
 * [Adobe Fonts](https://fonts.adobe.com/): Permanent Marker and Poppins
 * [CSS Layout Grid Challenge](https://github.com/LinkedInLearning/css-layout-code-challenges-3155794/codespaces): CSS Layout by Morten Rand-Hendriksen 
+* [Lucide](https://lucide.dev/icons/id-card): Favicon
 * [Claude 3.7 Sonnet](https://claude.ai): Used to make minor adjustments to Polaroid frame and hover effect
 
 ## Why Does This Exist? 
