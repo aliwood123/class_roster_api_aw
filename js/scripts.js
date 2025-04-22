@@ -1,33 +1,64 @@
-// Scripting
+const dataSource = "https://assets.codepen.io/16425/Spring-2025-Roster.json";
 
-// Data source
-const url = "https://assets.codepen.io/16425/web-3-spring-2024-roster.json";
+const container = document.querySelector(".grid ul");
 
-// Get data
-fetch(url)
-  .then( response  => response.json())
-  .then( data  => {
+fetch(dataSource )
+.then(res => res.json() )
+.then(students => {
+  
+  students.forEach(student => {
     
-    // check-check: is the data good?
-    console.log(data);
-    console.log(data.Name);
-    console.log(data.Image);
+  const template = `
+    <li>
+        
+        <div class="polaroid-container">
+        <div class="polaroid">
+        <img src="${student.imageUrl}" alt="${student.name}" class="polaroid-img" />
+        <div class="polaroid-caption">${student.name}</div>
+        </div>
+        </div>
+        
+        <p>
+        <b>What makes me weird:</b> ${student.funFact}
+       </p>
+       
+       <p>
+       <b>Words to live by:</b> ${student.motto}
+       </p>
+       
+       <p>
+       <b>Favorite band:</b> ${student.favoriteBand}
+       </p>
+       
+       <p>
+       <b>Comfort food of choice:</b> ${student.favoriteFood}
+       </p>
+        
+        <p> 
+          <b>Go-to karaoke song:</b> ${student.favoriteSong}
+        </p>
+    </li>
+    `;
+  
+  container.insertAdjacentHTML("afterbegin", template);
 
-    // get container for data
-    const roster = document.querySelector(".roster");
+  });  
+  
+});
 
-    // loop through data
-    data.forEach( student => {
-      
-      // template
-      const template = `
-          <figure>
-            <figcaption> ${student.Name} </figcaption>
-            <img src=" ${student.Image} " alt=" ${student.Name} ">
-          </figure>
-       `;
+/* Randomizing Background Color */
 
-      // insert EACH `student` record into container
-      roster.insertAdjacentHTML("afterbegin", template);
-    });
-  });
+const cssBodyClasses = [
+  "bg0",
+  "bg1", 
+  "bg2",
+  "bg3",
+  "bg4"
+]
+
+const maxNumOfBodyClasses = cssBodyClasses.length;
+randomNumber = Math.floor(Math.random() * maxNumOfBodyClasses);
+
+const elemToChange = document.querySelector("body");
+
+elemToChange.classList.add(`bg${randomNumber}`);
